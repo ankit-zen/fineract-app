@@ -22,14 +22,12 @@ services:
 
   db:
     extends:
-      file: ./config/docker/compose/mariadb.yml
+      file: /workspaces/fineract-app/config/docker/compose/mariadb.yml
       service: mariadb
-    ports: 
-      - "3306:3306"
 
   fineract:
     extends:
-      file: ./config/docker/compose/fineract.yml
+      file: /workspaces/fineract-app/config/docker/compose/fineract.yml
       service: fineract
     ports:
       - "8443:8443"
@@ -37,6 +35,6 @@ services:
       db:
         condition: service_healthy
     env_file:
-      - ./config/docker/env/fineract.env
-      - ./config/docker/env/fineract-common.env
-      - ./config/docker/env/fineract-mariadb.env
+      - /workspaces/fineract-app/config/docker/env/fineract.env
+      - /workspaces/fineract-app/config/docker/env/fineract-common.env
+      - /workspaces/fineract-app/config/docker/env/fineract-mariadb.env
