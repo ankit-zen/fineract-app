@@ -24,6 +24,8 @@ services:
     extends:
       file: ./config/docker/compose/mariadb.yml
       service: mariadb
+    ports: 
+      - "3306:3306"
 
   fineract:
     extends:
